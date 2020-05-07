@@ -40,10 +40,11 @@ io.on('connection', (socket) => {
     });
 
     socket.on('createMessage', (message, callback) => {
+        console.log("createMessagecreateMessage===>",message)
         var user = users.getUser(socket.id);
         if (user && isRealString(message.text)) {
             let tempObj = generateMessage(user.name, user.room, message.text);
-            io.to(user.room).emit('newMessage', tempObj);
+            io.to(user.room).emit('newMessage', {type:message.type,...tempObj});
             callback({
                 data: tempObj
             });

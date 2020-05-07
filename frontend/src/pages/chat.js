@@ -37,7 +37,7 @@ class Chat extends Component {
     }
 
     componentDidMount() {
-        console.log("useragent=======>", this.props.match.params.room);
+        // console.log("useragent=======>", this.props.match.params.room);
         const scopeThis = this;
         const params = {
             name: this.props.match.params.name,
@@ -60,13 +60,14 @@ class Chat extends Component {
         });
 
         socket.on('newMessage', (message) => {
+            console.log("newMessagenewMessage====>",message.type);
             var formattedTime = moment(message.createdDate).format('h:mm a');
             let newMsg = {
                 text: message.text,
                 from: message.from,
                 room: message.room,
                 createdDate: formattedTime,
-                type: 'user',
+                type: message.type,
             }
             let results = scopeThis.state.messages;
             results.push(newMsg);

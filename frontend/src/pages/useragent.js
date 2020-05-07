@@ -58,13 +58,14 @@ class Useragent extends Component {
         });
 
         socket.on('newMessage', (message) => {
+            console.log("AdminnewMessagenewMessage====>",message.type);
             var formattedTime = moment(message.createdDate).format('h:mm a');
             let newMsg = {
                 text: message.text,
                 from: message.from,
                 room: message.room,
                 createdDate: formattedTime,
-                type:'agent',
+                type: message.type,
             }
             let results = scopeThis.state.messages;
             results.push(newMsg);
