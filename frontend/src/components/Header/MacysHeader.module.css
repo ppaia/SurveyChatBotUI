@@ -1,0 +1,143 @@
+.MacysLogo{
+    width:100%;
+    height: auto;
+}
+.TopHeader{
+    height: 40px;
+    background-color: #2c2c37;
+    color: #fff;
+    margin: 0;
+    padding: 0 32px;;
+    letter-spacing: .1px;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.SignupDetails{
+    float: left;
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    color: #fff;
+    padding-left: 32px;
+}
+.ShipDetails{
+    float: right;
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    color: #fff;
+    padding-right: 32px;
+    text-align: right;
+}
+.headerCountryFlag {
+    display: inline-block;
+    margin: 0 0 0 5px;
+  }
+.headerCountryFlagImg{
+    height: 15px!important;
+    width: 24px!important;
+    padding-left: 0px;
+    border: 1px solid #bababa;
+}
+.BottomHeader{
+    width: 100%;
+    min-width: 1024px;
+    z-index: 3;
+    border-bottom: 1px solid #bababa;
+    background-color: #fff;
+    padding: 0 32px;
+    height: 170px;
+}
+.OrderTracking{
+    text-transform: capitalize;
+    color: #000!important;
+    background-color: transparent;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+.NavCategory a:hover{
+    text-decoration: underline;
+}
+.ShopByDept{
+    width: 232px;
+    border: 1px solid #696969;
+    text-align: left;
+    font-size: 14px;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+}
+.ShopByDept a{
+    color: #000;
+    line-height: 35px;
+    font-size: 16px;
+    padding: 0 0 0 15px;
+    font-weight: 700;
+}
+.Form{
+    float: right;
+}
+.NavShopByDept, .NavForm{
+    flex:1
+}
+.Form input{
+    /* outline: none; */
+    height: 2.1875rem;
+    padding: 0 .625rem;
+    margin: 0!important;
+    border-radius: 0;
+    border: 1px solid #d6d6d6;
+    border-right-width: 0;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 1rem;
+    color: #2c2c37;
+    line-height: 2.1875rem;
+    width: 495px!important;
+}
+.Form button{
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    height: 2.1875rem;
+    z-index: 1;
+    width: 2.1875rem;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    color:#fff;
+    left: 495px;
+    background-size: 1.5625rem;
+    background-position: 50%;
+    background-color: #626369!important;
+}
+.searchInput:focus{
+    /* outline: none; */
+    box-shadow: none;
+    border-color: none;
+    border: 1px solid #d6d6d6;
+}
+.myAccount{
+    padding: 2% 0 0 25%!important;
+    display: inline-flex!important;
+    font-size: smaller;
+    line-height: 15px;
+    left: 60%;
+    position: absolute;
+    top: 8%;
+}
+.firstNav{
+    height: 102px;
+}
+
+.myAccount :hover{
+    text-decoration: underline;
+}

@@ -7,6 +7,7 @@
   bottom: 8rem;
   box-shadow: 0px 0px 30px 10px #ddd;
   background-image: linear-gradient(135deg, #fdf0e3 0%, #ce8244 100%);
+  z-index: 999999;
 
   .activeUsers {
     position: absolute;
@@ -220,6 +221,12 @@ span.close {
   position: absolute;
   right: 1rem;
   top: 1rem;
+  cursor: pointer;
+
+  
+  i:hover {
+    color: rgb(148, 95, 95);
+  }
 }
 
 .chat_title {

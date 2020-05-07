@@ -1,0 +1,19 @@
+<svg version="1.1" id="Layer_1" x="0px" y="0px" height="100%" width="100%" viewBox="0 0 30 36" enable-background="new 0 0 30 36" xml:space="preserve">
+      <g>
+        <path id="bagOutline" d="M27,9.2h-4.3c-0.3-3.9-3.5-7-7.5-7S8,5.3,7.7,9.2H3c-0.6,0-1,0.4-1,1v23c0,0.6,0.4,1,1,1h24c0.6,0,1-0.4,1-1 v-23C28,9.7,27.6,9.2,27,9.2z M15.2,3.2c3.4,0,6.2,2.6,6.5,6H8.7C9,5.9,11.8,3.2,15.2,3.2z M27,33.2H3v-23h24V33.2z" fill="#000000" fill-rule="nonzero">
+        </path>
+
+         
+        <rect id="ie9Fallback" stroke="#fff" stroke-width="0" stroke-miterlimit:10;="" x="2.9" y="10.1" fill="#fff" width="24.2" height="23.2"></rect>
+
+      </g>
+           <svg version="1.1" x="0px" y="0px" height="100%" width="100%" viewBox="0 0 30 36" xml:space="preserve">
+        <g>
+        <polygon id="star" fill="#E01A2B" points="19.3,28.2 15,24.9 10.7,28.2 12.3,22.8 8,19.5 13.4,19.5 15,14.2 16.7,19.5 22,19.5
+    17.7,22.8" style="opacity: 1;"></polygon>
+        </g>
+          <text id="bagCount" fill="#fff" font-family="helvetica,sans-serif" x="50%" y="75%" text-anchor="middle" aria-hidden="true">0</text>
+      </svg>
+     
+    </svg>
+    

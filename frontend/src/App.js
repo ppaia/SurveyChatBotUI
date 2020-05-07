@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import MacysHeader from "./components/Header/MacysHeader";
+import Footer from './components/Footer/Footer';
+import Spinner from './components/Spinner/Spinner';
+
 import classNames from 'classnames';
 import './assets/scss/styles.scss';
 
@@ -17,6 +22,10 @@ class App extends Component {
     }
   }
 
+  handleData(productId) {
+    alert("Search handler!");
+  }
+
   componentDidMount() {
     this.setState({
       site_loaded: true
@@ -25,17 +34,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className={classNames({'App': true, 'site_loaded': this.state.site_loaded})}>
-        <Router>
-          <Switch>
-            <Route path="/chat/:name/:room" component={Chat} />
-            <Route path="/join" component={Join} />
-            <Route path="/useragent" component={Useragent} />
-            <Route path="/" component={Homepage} />
-            {/* <Route path="/home" component={Homepage} /> */}
-           
-          </Switch>
-        </Router>
+      <div>
+        <MacysHeader handlerFromParent={this.handleData} />
+        <Spinner />
+        <div className={classNames({ 'App': true, 'site_loaded': this.state.site_loaded })}>
+          <Router>
+            <Switch>
+              <Route path="/chat/:name/:room" component={Chat} />
+              <Route path="/join" component={Join} />
+              <Route path="/useragent" component={Useragent} />
+              <Route path="/" component={Homepage} />
+              {/* <Route path="/home" component={Homepage} /> */}
+            </Switch>
+          </Router>
+        </div>
+        <Footer />
       </div>
     );
   }
