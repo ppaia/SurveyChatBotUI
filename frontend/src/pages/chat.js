@@ -7,14 +7,16 @@ import moment from 'moment';
 import _ from 'lodash'
 import LoadingScreen from 'react-loading-screen';
 import useragent from '../mockupdata/useragent.json';
-const activeAgent =  _.filter(useragent.useragent, {"active": true });
+import chatSvg from "../assets/interface.svg";
+const activeAgent = _.filter(useragent.useragent, { "active": true });
 
 var socket;
 const initialState = {
     users: [],
     messages: [],
     newMsg: '',
-    fetchingLocation: false
+    fetchingLocation: false,
+    isActive: false
 }
 
 class Chat extends Component {
@@ -35,7 +37,7 @@ class Chat extends Component {
     }
 
     componentDidMount() {
-        console.log("useragent=======>",this.props.match.params.room);
+        console.log("useragent=======>", this.props.match.params.room);
         const scopeThis = this;
         const params = {
             name: this.props.match.params.name,
@@ -64,7 +66,7 @@ class Chat extends Component {
                 from: message.from,
                 room: message.room,
                 createdDate: formattedTime,
-                type:'user',
+                type: 'user',
             }
             let results = scopeThis.state.messages;
             results.push(newMsg);
@@ -85,7 +87,7 @@ class Chat extends Component {
                 from: message.from,
                 room: message.room,
                 createdDate: formattedTime,
-                type:'user',
+                type: 'user',
             }
             let results = scopeThis.state.messages;
             results.push(newMsg);
@@ -117,7 +119,7 @@ class Chat extends Component {
         let list = document.querySelector('#list').offsetHeight;
         let list_ul = document.querySelector('#list ul').offsetHeight;
         let scrollable = list_ul - list;
- 
+
         if (list_ul > list) {
             document.querySelector('#list').scrollTo(0, scrollable);
         }
@@ -146,7 +148,7 @@ class Chat extends Component {
         e.preventDefault()
         var obj = {
             'text': this.state.newMsg,
-            type:'user',
+            type: 'user',
         };
         socket.emit('createMessage', obj, function (data) { });
         this.clearForm();
@@ -169,13 +171,22 @@ class Chat extends Component {
         });
     }
 
+    toggleIsActive() {
+        this.setState(state => ({
+            isActive: !state.isActive
+        }));
+    }
+
     render() {
 
         const { newMsg } = this.state;
 
-        return (
-            <div className="chatPage">
+        let chatBubbleBox;
 
+        if (!this.state.isActive) {
+            chatBubbleBox = <div onClick={this.toggleIsActive.bind(this)} className="chatBubble"><img src={chatSvg} alt="chat bubble" /></div>;
+        } else {
+            chatBubbleBox = <div className="chatPage">
                 <LoadingScreen
                     loading={this.state.fetchingLocation}
                     bgColor='#F5F7F4'
@@ -189,15 +200,14 @@ class Chat extends Component {
                 <ActiveUsers users={this.state.users} />
 
                 <div className="messages_wrap">
-
-                    <h1>
-                        <Link to="/">
+                    <div class="d-flex">
+                        <Link to="/" className="type_icon">
                             <i className="fas fa-chevron-circle-left"></i>
                         </Link>
-                        {/* {activeAgent[0].roomname} */}
-                        <h2>Live Support</h2> <hr/>
-                    </h1>
-
+                        <h2 class="chat_title">Live Support</h2> 
+                        <span onClick={this.toggleIsActive.bind(this)} className="close"><i className="fas fa-times-circle"></i></span>
+                        <hr />
+                    </div>
                     <Messages messages={this.state.messages} room={activeAgent[0].roomname} />
 
                     <div className="newMsgForm">
@@ -226,6 +236,11 @@ class Chat extends Component {
 
                     </div>
                 </div>
+            </div>;
+        }
+        return (
+            <div>
+                {chatBubbleBox}
             </div>
         )
     }
