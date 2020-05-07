@@ -56,8 +56,8 @@ class Join extends Component {
                         <div className="form_item">
                             <div className="form_select">
                                 <select name="room" onChange={this.inputUpdate.bind(this)}>
-                                    <option value="">Please select problem type</option>
-                                    <option value="React JS">Macy Live agent for chat support.</option>
+                                    <option value="">You want connect to live support?</option>
+                                    <option value="React JS">Yes</option>
                                     {/* <option value="Node JS">Node JS</option> */}
                                 </select>
                                 <i className="fas fa-chevron-down"></i>

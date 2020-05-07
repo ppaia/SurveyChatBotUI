@@ -1,7 +1,7 @@
 {
     "useragent":[
-        {"id":1,"roomname":"ROOM_1","agentname":"Agent1","active":true},
-        {"id":2,"roomname":"ROOM_2","agentname":"Agent2","active":true},
+        {"id":1,"roomname":"ROOM_1","agentname":"Customer Agent Mike","active":true},
+        {"id":2,"roomname":"ROOM_2","agentname":"Customer Agent Robert","active":true},
         {"id":3,"roomname":"ROOM_3","agentname":"Agent3","active":false},
         {"id":4,"roomname":"ROOM_4","agentname":"Agent4","active":false},
         {"id":5,"roomname":"ROOM_5","agentname":"Agent5","active":false},
