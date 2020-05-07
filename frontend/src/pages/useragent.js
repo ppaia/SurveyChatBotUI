@@ -196,7 +196,7 @@ class Useragent extends Component {
                             <i className="fas fa-chevron-circle-left"></i>
                         </Link>
                         {/* {activeAgent[0].roomname} */}
-                        <h2>Live Support</h2> <hr/>
+                        <h2>Support Team</h2> <hr/>
                     </h1>
 
                     <Messages messages={this.state.messages} room={activeAgent[0].roomname} />
