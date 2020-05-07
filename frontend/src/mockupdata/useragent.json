@@ -1,0 +1,11 @@
+{
+    "useragent":[
+        {"id":1,"roomname":"ROOM_1","agentname":"Agent1","active":true},
+        {"id":2,"roomname":"ROOM_2","agentname":"Agent2","active":true},
+        {"id":3,"roomname":"ROOM_3","agentname":"Agent3","active":false},
+        {"id":4,"roomname":"ROOM_4","agentname":"Agent4","active":false},
+        {"id":5,"roomname":"ROOM_5","agentname":"Agent5","active":false},
+        {"id":6,"roomname":"ROOM_6","agentname":"Agent6","active":false},
+        {"id":7,"roomname":"ROOM_7","agentname":"Agent7","active":false}
+    ]
+}
