@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class Messages extends Component {
     render() {
+        console.log("msg data===============>",this.props.messages);
         return (
             <div className="messages">
                 <div id="list">
@@ -10,7 +11,7 @@ class Messages extends Component {
                             {JSON.stringify(this.props.messages)}
                         </div> */}
                         {this.props.messages.filter(message => message.room === this.props.room).map((message, index) => (
-                            <li key={index}>
+                            <li key={index} className={message.type}>
 
                                 {message.url &&
                                     <div>
