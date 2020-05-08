@@ -40,10 +40,10 @@ class App extends Component {
         <div className={classNames({ 'App': true, 'site_loaded': this.state.site_loaded })}>
           <Router>
             <Switch>
-              <Route path="/chat/:name/:room" component={Chat} />
-              <Route path="/join" component={Join} />
+              {/* <Route path="/chat/:name/:room" component={Chat} />
+              <Route path="/join" component={Join} /> */}
               <Route path="/useragent" component={Useragent} />
-              <Route path="/" component={Homepage} />
+              <Route path="/" component={Chat} />
               {/* <Route path="/home" component={Homepage} /> */}
             </Switch>
           </Router>

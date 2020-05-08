@@ -24,7 +24,8 @@ class Chat extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ...initialState
+            ...initialState,
+            isbuttonenable:false
         }
     }
 
@@ -34,13 +35,18 @@ class Chat extends Component {
         }
         socket.emit('leave', param);
         this.setState({ ...initialState });
+        clearInterval(this.timerID);
     }
 
     componentDidMount() {
         // console.log("useragent=======>", this.props.match.params.room);
+        this.timerID = setInterval(
+            () => this.setState({isbuttonenable:true}),
+            4000
+          );
         const scopeThis = this;
         const params = {
-            name: this.props.match.params.name,
+            name: 'Adarsh Tiwari',
             room: activeAgent[0].roomname,//this.props.match.params.room
             type: 'user',
         }
@@ -185,7 +191,7 @@ class Chat extends Component {
         let chatBubbleBox;
 
         if (!this.state.isActive) {
-            chatBubbleBox = <div onClick={this.toggleIsActive.bind(this)} className="chatBubble"><img src={chatSvg} alt="chat bubble" /></div>;
+            chatBubbleBox = (this.state.isbuttonenable === true)?<div onClick={this.toggleIsActive.bind(this)} className="chatBubble"><img src={chatSvg} alt="chat bubble" /></div>:null
         } else {
             chatBubbleBox = <div className="chatPage">
                 <LoadingScreen
@@ -197,7 +203,6 @@ class Chat extends Component {
                 >
                     <div className="hide"></div>
                 </LoadingScreen>
-
                 <ActiveUsers users={this.state.users} />
 
                 <div className="messages_wrap">
@@ -241,6 +246,7 @@ class Chat extends Component {
         }
         return (
             <div>
+                <h1>Checkout Page</h1>
                 {chatBubbleBox}
             </div>
         )
