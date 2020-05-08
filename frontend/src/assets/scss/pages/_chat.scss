@@ -1,13 +1,19 @@
 .chatPage {
-  position: fixed;
-  height: 600px;
-  width: 400px;
-  margin: auto;
-  right: 1rem;
-  bottom: 8rem;
-  box-shadow: 0px 0px 30px 10px #ddd;
-  background-image: linear-gradient(135deg, #fdf0e3 0%, #ce8244 100%);
-  z-index: 999999;
+  &.user_chats {
+    position: fixed;
+    height: 600px;
+    width: 400px;
+    margin: auto;
+    right: 1rem;
+    bottom: 2rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 30px 10px #ddd;
+    background-image: url(https://tars-file-upload.s3.amazonaws.com/B1WntK/ed90e025dd401f6f45ddc467ec03c833--cartoon-people-with-gold-coin-stack-dollar-wallet82574-3923.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center center;
+    z-index: 999999;
+  }
 
   .activeUsers {
     position: absolute;
@@ -19,6 +25,10 @@
     box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.1);
     padding: 2rem 2%;
     z-index: 10;
+
+    #users {
+      font-size: 14px;
+    }
 
     h2 {
       font-size: 18px;
@@ -48,11 +58,6 @@
     position: fixed;
     height: 600px;
     width: 400px;
-    margin: auto;
-    right: 1rem;
-    bottom: 8rem;
-    box-shadow: 0px 0px 30px 10px #ddd;
-    background-image: linear-gradient(135deg, #fdf0e3 0%, #ce8244 100%);
 
     h1 {
       padding: 2rem 1rem;
@@ -79,32 +84,61 @@
         -webkit-overflow-scrolling: touch;
         margin-bottom: 80px;
 
-        li:nth-child(odd) .msg {
-          background: #eee;
+        ul {
+          padding-bottom: 1rem;
         }
 
-        .msg {
-          display: inline-block;
-          background: #ffffff;
-          border-radius: 3px;
-          box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.1);
-          padding: 1.5rem 1.5%;
-          margin: 0.5rem 2.5%;
+        li:nth-child(odd) .msg {
+          background: rgb(138, 212, 116);
+        }
 
-          h4 {
-            font-size: 1.5rem;
-            line-height: 1.8rem;
-            margin-bottom: 0.5rem;
-            font-weight: 800;
-          }
-          a {
-            color: #3597de;
+        li {
+          &.user {
+            text-align: right;
+
+            .msg {
+              border-top-left-radius: 1.3em;
+              border-top-right-radius: 0;
+              border-bottom-left-radius: 1.3em;
+              border-bottom-right-radius: 1.3em;
+            }
           }
 
-          p {
-            font-size: 1.4rem;
-            line-height: 1.8rem;
-            margin: 0;
+          &.agent {
+            text-align: left;
+
+            .msg {
+              border-top-left-radius: 0;
+              border-top-right-radius: 1.3em;
+              border-bottom-left-radius: 1.3em;
+              border-bottom-right-radius: 1.3em;
+            }
+          }
+
+          .msg {
+            display: inline-block;
+            background: rgb(138, 212, 116);
+            border-radius: 3px;
+            box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 1.5%;
+            margin: 0.5rem 2.5%;
+            color: #333;
+
+            h4 {
+              font-size: 1.5rem;
+              line-height: 1.8rem;
+              margin-bottom: 0.5rem;
+              font-weight: 800;
+            }
+            a {
+              color: #3597de;
+            }
+
+            p {
+              font-size: 1.4rem;
+              line-height: 1.8rem;
+              margin: 0;
+            }
           }
         }
 
@@ -113,18 +147,17 @@
           width: 100%;
           padding: 0.5rem;
           font-size: 1.3rem;
-          margin: 0 auto 2rem;
+          margin: 0 auto 0;
+          color: #fff;
+          font-weight: bold;
         }
       }
     }
 
     .newMsgForm {
       width: calc(400px);
-      bottom: -5rem;
-      border: 1.2px solid #a9a9a9;
-      outline: 0;
-      color: #000;
-      box-shadow: 1px 1px 4px grey;
+      bottom: 1rem;
+      padding: 0 1rem;
     }
   }
 
@@ -138,9 +171,6 @@
       display: inline-block;
       width: 100%;
       position: relative;
-      background: #ffffff;
-      border-radius: 3px;
-      box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.1);
       padding: 0.2rem;
 
       .form_wrap {
@@ -152,6 +182,9 @@
           .form_item .form_input {
             input {
               background: $white;
+              border-radius: 50px;
+              box-shadow: 1px 1px 4px grey;
+              padding-left: 20px;
             }
 
             .bottom_border::before {
@@ -172,7 +205,6 @@
 
         .btn {
           display: inline-block;
-          background: none;
           border: none;
           cursor: pointer;
           width: 3.2rem;
@@ -194,20 +226,66 @@
       }
     }
   }
+
+  &.user_agent {
+    height: auto;
+    width: 100%;
+    margin: auto;
+    right: 1rem;
+    bottom: 2rem;
+    z-index: 999999;
+    display: flex;
+
+    .activeUsers {
+      position: relative;
+      top: 0;
+      left: 0;
+      margin: 2rem;
+    }
+
+    .messages_wrap {
+      position: relative;
+      top: 0;
+      margin: 2rem;
+      border-radius: 3px;
+      box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.1);
+      padding: 2rem 2%;
+      width: 100%;
+    }
+  }
 }
 
 .chatBubble {
-  position: absolute;
+  position: fixed;
   z-index: 999;
-  width: 100px;
+  width: 100%;
   height: 100px;
   bottom: 0rem;
   right: 0rem;
   cursor: pointer;
 
+  span {
+    text-align: right;
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    right: 1rem;
+    background: #2103038c;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    &:hover {
+      color: rgb(224, 224, 210);
+    }
+  }
+
   img {
     width: 60px;
     height: 60px;
+    float: right;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
 
     &:hover {
       width: 80px;
@@ -223,7 +301,6 @@ span.close {
   top: 1rem;
   cursor: pointer;
 
-  
   i:hover {
     color: rgb(148, 95, 95);
   }

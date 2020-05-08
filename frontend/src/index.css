@@ -53,3 +53,11 @@ body {
     font-size:24px!important;
   }
   
+  .full-height {
+    min-height: 50vh;
+  }
+
+  .adjust-to-center {
+    position: relative;
+    text-align: center;
+  }

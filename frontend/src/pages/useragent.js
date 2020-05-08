@@ -175,7 +175,7 @@ class Useragent extends Component {
         const { newMsg } = this.state;
 
         return (
-            <div className="chatPage">
+            <div className="chatPage user_agent">
 
                 <LoadingScreen
                     loading={this.state.fetchingLocation}
@@ -187,7 +187,7 @@ class Useragent extends Component {
                     <div className="hide"></div>
                 </LoadingScreen>
 
-                <ActiveUsers users={this.state.users} />
+                <ActiveUsers users={this.state.users} hide={false} />
 
                 <div className="messages_wrap">
 

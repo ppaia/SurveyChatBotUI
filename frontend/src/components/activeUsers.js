@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class ActiveUsers extends Component {
     render() {
         return (
-            <div className="activeUsers hide">
+            <div className={`activeUsers ${this.props.hide ? "hide" : ""}`}>
                 <h2 className="headline">
                     Active users
                 </h2>

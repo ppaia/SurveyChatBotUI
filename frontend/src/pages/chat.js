@@ -25,7 +25,7 @@ class Chat extends Component {
         super(props);
         this.state = {
             ...initialState,
-            isbuttonenable:false
+            isbuttonenable: false
         }
     }
 
@@ -41,9 +41,9 @@ class Chat extends Component {
     componentDidMount() {
         // console.log("useragent=======>", this.props.match.params.room);
         this.timerID = setInterval(
-            () => this.setState({isbuttonenable:true}),
+            () => this.setState({ isbuttonenable: true }),
             4000
-          );
+        );
         const scopeThis = this;
         const params = {
             name: 'Adarsh Tiwari',
@@ -66,7 +66,7 @@ class Chat extends Component {
         });
 
         socket.on('newMessage', (message) => {
-            console.log("newMessagenewMessage====>",message.type);
+            console.log("newMessagenewMessage====>", message.type);
             var formattedTime = moment(message.createdDate).format('h:mm a');
             let newMsg = {
                 text: message.text,
@@ -191,9 +191,10 @@ class Chat extends Component {
         let chatBubbleBox;
 
         if (!this.state.isActive) {
-            chatBubbleBox = (this.state.isbuttonenable === true)?<div onClick={this.toggleIsActive.bind(this)} className="chatBubble"><img src={chatSvg} alt="chat bubble" /></div>:null
+            let bubbleButton = <div onClick={this.toggleIsActive.bind(this)} className="chatBubble"><span className="greetings_text">Hello Adarsh! How can I help you? I'll be glad to do so!</span><img src={chatSvg} alt="chat bubble" /></div>
+            chatBubbleBox = (this.state.isbuttonenable === true) ? bubbleButton : null
         } else {
-            chatBubbleBox = <div className="chatPage">
+            chatBubbleBox = <div className="chatPage user_chats">
                 <LoadingScreen
                     loading={this.state.fetchingLocation}
                     bgColor='#F5F7F4'
@@ -203,14 +204,14 @@ class Chat extends Component {
                 >
                     <div className="hide"></div>
                 </LoadingScreen>
-                <ActiveUsers users={this.state.users} />
+                <ActiveUsers users={this.state.users} hide={true}/>
 
                 <div className="messages_wrap">
-                    <div class="d-flex">
+                    <div className="d-flex">
                         <Link to="/" className="type_icon">
                             <i className="fas fa-chevron-circle-left"></i>
                         </Link>
-                        <h2 class="chat_title">Live Support</h2> 
+                        <h2 className="chat_title">Live Support</h2>
                         <span onClick={this.toggleIsActive.bind(this)} className="close"><i className="fas fa-times-circle"></i></span>
                         <hr />
                     </div>
@@ -245,8 +246,12 @@ class Chat extends Component {
             </div>;
         }
         return (
-            <div>
-                <h1>Checkout Page</h1>
+            <div className="container">
+                <div className="row adjust-to-center">
+                    <div className="col p-5">
+                        <h1>Checkout Page</h1>
+                    </div>
+                </div>
                 {chatBubbleBox}
             </div>
         )

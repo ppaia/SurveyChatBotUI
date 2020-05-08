@@ -8,17 +8,16 @@ import Spinner from './components/Spinner/Spinner';
 import classNames from 'classnames';
 import './assets/scss/styles.scss';
 
-import Homepage from './pages/homepage';
 import Chat from './pages/chat';
-import Join from './pages/join';
-import Useragent from './pages/useragent'
+import Useragent from './pages/useragent';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      site_loaded: false
+      site_loaded: false,
+      loadTimer: false,
     }
   }
 
@@ -30,24 +29,34 @@ class App extends Component {
     this.setState({
       site_loaded: true
     });
+    this.timer = setTimeout(
+      () => this.setState(prevState => ({ loadTimer: !prevState.loadTimer })),
+      1000,
+    );
   }
 
   render() {
+
+    let conent = <Spinner />;
+
+    if (this.state.loadTimer) {
+      conent = <div className={classNames({ 'App': true, 'site_loaded': this.state.site_loaded })}>
+        <Router>
+          <Switch>
+            {/* <Route path="/chat/:name/:room" component={Chat} />
+          <Route path="/join" component={Join} /> */}
+            <Route path="/useragent" component={Useragent} />
+            <Route path="/" component={Chat} />
+            {/* <Route path="/home" component={Homepage} /> */}
+          </Switch>
+        </Router>
+      </div>;
+    }
+
     return (
-      <div>
+      <div className="full-height">
         <MacysHeader handlerFromParent={this.handleData} />
-        <Spinner />
-        <div className={classNames({ 'App': true, 'site_loaded': this.state.site_loaded })}>
-          <Router>
-            <Switch>
-              {/* <Route path="/chat/:name/:room" component={Chat} />
-              <Route path="/join" component={Join} /> */}
-              <Route path="/useragent" component={Useragent} />
-              <Route path="/" component={Chat} />
-              {/* <Route path="/home" component={Homepage} /> */}
-            </Switch>
-          </Router>
-        </div>
+        {conent}
         <Footer />
       </div>
     );
