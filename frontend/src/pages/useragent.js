@@ -190,17 +190,15 @@ class Useragent extends Component {
                 <ActiveUsers users={this.state.users} hide={false} />
 
                 <div className="messages_wrap">
-
-                    <h1>
+                    <h1 className="d-flex">
                         <Link to="/">
-                            <i className="fas fa-chevron-circle-left"></i>
+                            <i className="fas fa-user-circle"></i>
                         </Link>
                         {/* {activeAgent[0].roomname} */}
-                        <h2>Support Team</h2> <hr/>
+                        <h2>Support Team</h2>
                     </h1>
-
+                    <hr/>
                     <Messages messages={this.state.messages} room={activeAgent[0].roomname} />
-
                     <div className="newMsgForm">
                         <div className="wrap">
                             <form onSubmit={(e) => this.newMessage(e)}>

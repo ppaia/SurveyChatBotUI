@@ -116,7 +116,7 @@ class Chat extends Component {
         var messagesList = document.querySelector('.messages #list');
         var newMessage = document.querySelector('.messages #list ul li:last-child');
         // heights
-        var messagesWrapperHeight = listHeight.clientHeight;
+        var messagesWrapperHeight = (listHeight.clientHeight)? listHeight.clientHeight: 50;
         var clientHeight = messagesList.clientHeight;
         var scrollTop = messagesList.scrollTop;
         var scrollHeight = messagesList.scrollHeight;
@@ -209,7 +209,7 @@ class Chat extends Component {
                 <div className="messages_wrap">
                     <div className="d-flex">
                         <Link to="/" className="type_icon">
-                            <i className="fas fa-chevron-circle-left"></i>
+                            <i className="fas fa-user-circle"></i>
                         </Link>
                         <h2 className="chat_title">Live Support</h2>
                         <span onClick={this.toggleIsActive.bind(this)} className="close"><i className="fas fa-times-circle"></i></span>

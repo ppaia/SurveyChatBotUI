@@ -60,4 +60,5 @@ body {
   .adjust-to-center {
     position: relative;
     text-align: center;
+    min-height: 40vh;
   }

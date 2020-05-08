@@ -153,12 +153,6 @@
         }
       }
     }
-
-    .newMsgForm {
-      width: calc(400px);
-      bottom: 1rem;
-      padding: 0 1rem;
-    }
   }
 
   .newMsgForm {
@@ -166,6 +160,8 @@
     width: 100%;
     margin: 0 auto;
     position: absolute;
+    bottom: 1rem;
+    padding: 0 1rem;
 
     .wrap {
       display: inline-block;
@@ -251,6 +247,10 @@
       box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.1);
       padding: 2rem 2%;
       width: 100%;
+
+      .newMsgForm {
+        width: 95%;
+      }
     }
   }
 }
