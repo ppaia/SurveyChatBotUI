@@ -8,7 +8,7 @@
     "@progress/kendo-react-animation": "^3.12.0",
     "@progress/kendo-react-treeview": "^3.12.0",
     "antd": "^4.1.4",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "cart-localstorage": "^1.1.4",
     "devexpress-diagram": "^0.1.57",
